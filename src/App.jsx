@@ -1,9 +1,26 @@
-import "./App.css";
+import { createBrowserRouter } from "react-router-dom";
+import Body from "./components/Body";
+import Browse from "./components/Browse";
+import { RouterProvider } from "react-router-dom";
+import Login from "./components/Login";
+
+const appRotes = createBrowserRouter([
+  {
+    path: "/",
+    element: <Login />,
+  },
+  {
+    path: "/browse",
+    element: <Browse />,
+  },
+]);
 
 function App() {
   return (
     <div>
-      <h1 className="text-3xl text-red-500 font-bold">Building Netlfix gpt</h1>
+      <RouterProvider router={appRotes}>
+        <Body />
+      </RouterProvider>
     </div>
   );
 }
